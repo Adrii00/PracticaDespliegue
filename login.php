@@ -21,11 +21,8 @@
             $nombre = $_POST["nombre"];
             $contrasena = $_POST["contrasena"];
     
-            $sql = "SELECT nombre, contrasena FROM usuarios WHERE nombre='$nombre'";
+            $sql = "SELECT usuario, contrasena FROM usuarios WHERE usuario='$nombre'";
             $resultado = $conexion -> query($sql);
-
-            echo "<p>$nombre</p>";
-            echo "<p>$contrasena</p>";
 
             var_dump($resultado);
             echo "<p>". $resultado -> num_rows ."</p>";
@@ -60,11 +57,9 @@
     Nombre: <input type="text" name="nombre">
     <span class="error">* <?php if (isset($err_nombre)) echo $err_nombre;?></span>
     <br><br>
-    Email: <input type="text" name="email">
-    <span class="error">* <?php if (isset($err_email)) echo $err_email;?></span>
-    <br><br>
     Contraseña: <input type="password" name="contrasena">
     <span class="error">* <?php if (isset($err_contrasena)) echo $err_contrasena;?></span>
     <br><br>
     <input type="submit" value="Enviar">
 </form>
+<h4><a href="registrarse.php">Registrarse</a></h4>

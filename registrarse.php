@@ -17,15 +17,12 @@
             $nombre = $_POST["nombre"];
             $contrasena = $_POST["contrasena"];
             $hash_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
-            echo "<br>";
-            echo "<h2>El nombre es $nombre</h2>";
-            echo "<br>";
 
-            $sql = "INSERT INTO usuarios (nombre, contrasena)
+            $sql = "INSERT INTO usuarios (usuario, contrasena)
                         VALUES ('$nombre','$hash_contrasena')";
 
             if ($conexion -> query($sql) === TRUE) {
-                echo "Nuevo registro creado correctamente";
+                echo "Usuario registrado correctamente";
             } else {
                 echo "Error: " . $sql . "<br>" . $conexion -> error;
             }
